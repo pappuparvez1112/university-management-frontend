@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 const { Header, Content, Footer, Sider } = Layout;
-import { USER_ROLE } from "@/constants/role";
 import { sidebarItems } from "@/constants/sidebarItems";
+import { getUserInfo } from "@/services/auth.service";
 
 // import {
 //   DesktopOutlined,
@@ -48,7 +48,8 @@ import { useState } from "react";
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
 
-  const role = USER_ROLE.SUPER_ADMIN;
+  const { role } = getUserInfo() as any;
+  console.log(role);
   return (
     <Sider
       collapsible
@@ -71,6 +72,8 @@ const Sidebar = () => {
           textAlign: "center",
           fontWeight: "bold",
           marginBottom: "1rem",
+          paddingTop: "22px",
+          paddingBottom: "16px",
         }}
       >
         PH-University
@@ -80,6 +83,7 @@ const Sidebar = () => {
         defaultSelectedKeys={["1"]}
         mode="inline"
         items={sidebarItems(role)}
+        style={{ paddingLeft: "10px" }}
       />
     </Sider>
   );

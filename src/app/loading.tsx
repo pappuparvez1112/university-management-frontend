@@ -1,7 +1,19 @@
+import { Spin } from "antd";
+
 const LoadingPage = () => {
   return (
     <div>
-      <h1>Loading</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          height: "100vh",
+          alignItems: "center",
+        }}
+      >
+        <Spin size="large"></Spin>
+      </div>
     </div>
   );
 };
