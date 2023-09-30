@@ -1,5 +1,6 @@
 "use client";
 import Form from "@/components/forms/Form";
+import FormDatePicker from "@/components/forms/FormDatePicker";
 import FormInput from "@/components/forms/FormInput";
 import FormSelectField from "@/components/forms/FormSelectFields";
 import FormTextAreaField from "@/components/forms/FormTextArea";
@@ -195,11 +196,10 @@ const CreateAdminPage = () => {
                 span={8}
                 style={{ marginBottom: "10px" }}
               >
-                <FormInput
-                  type="password"
-                  name="password"
+                <FormDatePicker
+                  name="admin.dateOfBirth"
+                  label="Date of birth"
                   size="large"
-                  label="Password"
                 />
               </Col>
               <Col
@@ -211,7 +211,7 @@ const CreateAdminPage = () => {
                   size="large"
                   name="admin.bloodGroup"
                   options={bloodGroupOptions}
-                  label="BloodGroup"
+                  label="Blood Group"
                   placeholder="Select"
                 />
               </Col>
@@ -234,7 +234,7 @@ const CreateAdminPage = () => {
               >
                 <FormTextAreaField
                   name="admin.presentAddress"
-                  label="PresentAddress"
+                  label="Present Address"
                   rows={4}
                 />
               </Col>
@@ -244,8 +244,8 @@ const CreateAdminPage = () => {
                 style={{ marginBottom: "10px" }}
               >
                 <FormTextAreaField
-                  name="admin.presentAddress"
-                  label="PresentAddress"
+                  name="admin.permanentAddress"
+                  label="Permanent Address"
                   rows={4}
                 />
               </Col>

@@ -69,11 +69,13 @@ const Sidebar = () => {
         style={{
           color: "white",
           fontSize: "2rem",
-          textAlign: "center",
+          justifyContent: "center",
+          alignItems: "center",
           fontWeight: "bold",
           marginBottom: "1rem",
           paddingTop: "22px",
           paddingBottom: "16px",
+          display: "flex",
         }}
       >
         PH-University
