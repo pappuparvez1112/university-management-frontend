@@ -75,7 +75,7 @@ const Sidebar = () => {
           marginBottom: "1rem",
           paddingTop: "22px",
           paddingBottom: "16px",
-          display: "flex",
+          marginLeft: "30px",
         }}
       >
         PH-University

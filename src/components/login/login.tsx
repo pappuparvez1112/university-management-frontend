@@ -3,8 +3,10 @@ import LoginImage from "@/app/assets/Privacy policy-rafiki.png";
 import Form from "@/components/forms/Form";
 import FormInput from "@/components/forms/FormInput";
 import { useUserLoginMutation } from "@/redux/api/authApi";
+import { loginSchema } from "@/schemas/login";
 import { storeUserInfo } from "@/services/auth.service";
-import { Button, Col, Row, Space } from "antd";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Button, Col, Row, Space, message } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -26,6 +28,7 @@ const LoginPage = () => {
       // console.log(res);
       if (res?.accessToken) {
         router.push("/profile");
+        message.success("User logged in successfully");
       }
       storeUserInfo({ accessToken: res?.accessToken });
       // console.log(res);
@@ -54,7 +57,7 @@ const LoginPage = () => {
           First login your account
         </h1>
         <div>
-          <Form submitHandler={onSubmit}>
+          <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
             <div>
               <FormInput name="id" type="text" size="large" label="User id" />
             </div>

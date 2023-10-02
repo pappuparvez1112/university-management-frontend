@@ -1,4 +1,5 @@
 "use client";
+import { getErrorMessageByPropertyName } from "@/utils/schema-validators";
 import { Input } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 interface IInput {
@@ -23,7 +24,12 @@ const FormInput = ({
   label,
   visibilityToggle,
 }: IInput) => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+
+  const errorMessage = getErrorMessageByPropertyName(errors, name);
   return (
     <>
       {label ? label : null}
@@ -51,6 +57,7 @@ const FormInput = ({
           )
         }
       />
+      <small style={{ color: "red" }}>{errorMessage}</small>
     </>
   );
 };
