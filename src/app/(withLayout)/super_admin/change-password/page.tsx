@@ -45,7 +45,7 @@ const ResetPasswordPage = () => {
         >
           <Space direction="horizontal">
             <FormInput
-              name="password"
+              name="old password"
               type="password"
               size="large"
               label="Old password"
@@ -74,7 +74,7 @@ const ResetPasswordPage = () => {
         >
           <Space direction="horizontal">
             <FormInput
-              name="password"
+              name="new password"
               type="password"
               size="large"
               label="New password"
