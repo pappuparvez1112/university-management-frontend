@@ -1,5 +1,5 @@
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { Upload, message } from "antd";
+import { Image, Upload, message } from "antd";
 import type { UploadChangeParam } from "antd/es/upload";
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 import { useState } from "react";
@@ -61,7 +61,13 @@ const UploadImage = () => {
         onChange={handleChange}
       >
         {imageUrl ? (
-          <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
+          <Image
+            src={imageUrl}
+            alt="avatar"
+            style={{ width: "100%" }}
+            width={100}
+            height={100}
+          />
         ) : (
           uploadButton
         )}
