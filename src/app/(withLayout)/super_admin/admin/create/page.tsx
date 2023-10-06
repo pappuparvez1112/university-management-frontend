@@ -1,4 +1,5 @@
 "use client";
+
 import Form from "@/components/forms/Form";
 import FormDatePicker from "@/components/forms/FormDatePicker";
 import FormInput from "@/components/forms/FormInput";
@@ -7,14 +8,17 @@ import FormTextAreaField from "@/components/forms/FormTextArea";
 import UMBreadcrumb from "@/components/ui/UMBreadCrumb";
 import UploadImage from "@/components/ui/UploadImage";
 import { bloodGroupOptions, genderOptions } from "@/constants/global";
+import { useAddAdminWithFormDataMutation } from "@/redux/api/adminApi";
 import { useDepartmentsQuery } from "@/redux/api/departmentApi";
 import { adminSchema } from "@/schemas/admin";
 import { IDepartment } from "@/types";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Col, Row } from "antd";
+
+import { Button, Col, Row, message } from "antd";
 
 const CreateAdminPage = () => {
   const { data, isLoading } = useDepartmentsQuery({ limit: 100, page: 1 });
+  const [addAdminWithFormData] = useAddAdminWithFormDataMutation();
   //@ts-ignore
   const departments: IDepartment[] = data?.departments;
   const departmentOptions = departments?.map((department: any) => {
@@ -23,9 +27,24 @@ const CreateAdminPage = () => {
       value: department?.id,
     };
   });
-  const onSubmit = async (data: any) => {
+
+  const onSubmit = async (values: any) => {
+    console.log(values);
+    const obj = { ...values };
+    console.log(obj);
+    const file = obj["file"];
+    console.log(file);
+    delete obj["file"];
+    const data = JSON.stringify(obj);
+    const formData = new FormData();
+    console.log(formData);
+    formData.append("file", file as Blob);
+    formData.append("data", data);
+    message.loading("Creating...");
     try {
-      console.log(data);
+      await addAdminWithFormData(formData);
+
+      message.success("Admin created successfully!");
     } catch (err: any) {
       console.error(err.message);
     }
@@ -142,7 +161,7 @@ const CreateAdminPage = () => {
                 span={8}
                 style={{ marginBottom: "10px" }}
               >
-                <UploadImage />
+                <UploadImage name="file" />
               </Col>
             </Row>
           </div>
