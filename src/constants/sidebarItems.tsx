@@ -51,15 +51,17 @@ export const sidebarItems = (role: string) => {
       icon: <TableOutlined />,
       children: [
         {
-          label: <Link href={`/${role}/academic/faculty`}>Faculties</Link>,
+          label: <Link href={`/${role}/academic/faculties`}>Faculties</Link>,
           key: `/${role}/academic/faculty`,
         },
         {
-          label: <Link href={`/${role}/academic/department`}>Departments</Link>,
+          label: (
+            <Link href={`/${role}/academic/departments`}>Departments</Link>
+          ),
           key: `/${role}/academic/department`,
         },
         {
-          label: <Link href={`/${role}/academic/semester`}>Semesters</Link>,
+          label: <Link href={`/${role}/academic/semesters`}>Semesters</Link>,
           key: `/${role}/academic/semester`,
         },
       ],

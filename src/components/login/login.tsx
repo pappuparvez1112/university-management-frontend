@@ -6,7 +6,7 @@ import { useUserLoginMutation } from "@/redux/api/authApi";
 import { loginSchema } from "@/schemas/login";
 import { storeUserInfo } from "@/services/auth.service";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Col, Row, Space, message } from "antd";
+import { Button, Col, Row, message } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -64,9 +64,16 @@ const LoginPage = () => {
             <div
               style={{
                 margin: "15px 0",
+                justifyContent: "space-between",
+                display: "flex",
+                gap: "10px",
               }}
             >
-              <Space direction="horizontal">
+              <div
+                style={{
+                  width: 400,
+                }}
+              >
                 <FormInput
                   name="password"
                   type="password"
@@ -78,17 +85,19 @@ const LoginPage = () => {
                     onVisibleChange: setPasswordVisible,
                   }}
                 />
+              </div>
+              <div>
                 <Button
                   style={{
                     width: 80,
-                    marginTop: "16px",
-                    height: "39px",
+                    marginTop: "17px",
+                    height: "40px",
                   }}
                   onClick={() => setPasswordVisible((prevState) => !prevState)}
                 >
                   {passwordVisible ? "Hide" : "Show"}
                 </Button>
-              </Space>
+              </div>
             </div>
             <Button type="primary" htmlType="submit">
               Login
