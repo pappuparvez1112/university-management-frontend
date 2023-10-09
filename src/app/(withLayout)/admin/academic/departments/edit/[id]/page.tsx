@@ -48,12 +48,12 @@ const EditAcademicDepartmentPage = ({ params }: IDprops) => {
       message.error(err.message);
     }
   };
+
   const defaultValues = {
     title: data?.title || "",
+    academicFaculty: data?.academicFaculty?.title || "",
   };
-  const facultyDefaultValues = {
-    title: data?.academicFaculty?.title || "",
-  };
+
   console.log(defaultValues);
   return (
     <div>
@@ -78,10 +78,10 @@ const EditAcademicDepartmentPage = ({ params }: IDprops) => {
           <Col className="gutter-row" span={8} style={{ marginBottom: "10px" }}>
             <FormSelectField
               size="large"
-              name="academicFacultyId"
+              name="academicFaculty"
               options={academicFacultiesOptions as SelectOptions[]}
               label="Academic Faculty"
-              placeholder="Select"
+              placeholder="Select Faculty"
             />
           </Col>
         </Row>

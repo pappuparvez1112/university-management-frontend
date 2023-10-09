@@ -87,3 +87,39 @@ export const academicSemesterOptions = [
     value: "summer 2023",
   },
 ];
+
+// export const acSemesterOptions = [
+//   {
+//     label: "Fall",
+//     value: "fall",
+//   },
+//   {
+//     label: "Autumn",
+//     value: "autumn",
+//   },
+//   {
+//     label: "Summer",
+//     value: "summer",
+//   },
+// ];
+
+export const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+export const monthOptions = months.map((month: string) => {
+  return {
+    label: month,
+    value: month,
+  };
+});
