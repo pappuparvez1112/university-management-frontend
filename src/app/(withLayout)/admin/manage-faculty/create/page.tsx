@@ -17,7 +17,6 @@ const CreateFacultyPage = () => {
   const [addFacultyWithFormData] = useAddFacultyWithFormDataMutation();
 
   const adminOnSubmit = async (values: any) => {
-    console.log(adminOnSubmit);
     const obj = { ...values };
     const file = obj["file"];
     delete obj["file"];
