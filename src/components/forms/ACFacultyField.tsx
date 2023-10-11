@@ -12,12 +12,14 @@ const ACFacultyField = ({ name, label }: ACFacultyFieldProps) => {
     page: 1,
   });
   const academicFaculties = data?.academicFaculties;
+  console.log(academicFaculties);
   const acFacultyOptions = academicFaculties?.map((acFaculty) => {
     return {
       label: acFaculty?.title,
       value: acFaculty?.id,
     };
   });
+  console.log(acFacultyOptions);
 
   return (
     <FormSelectField

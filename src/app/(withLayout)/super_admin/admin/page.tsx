@@ -46,6 +46,7 @@ const AdminPage = () => {
   // const [deleteDepartment] = useDeleteDepartmentMutation();
   const admins = data?.admins;
   const meta = data?.meta;
+  console.log(admins);
 
   // const deleteHandler = async (id: string) => {
   //   message.loading("deleting.....");

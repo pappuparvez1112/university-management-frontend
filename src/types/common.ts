@@ -50,6 +50,7 @@ export interface IAdmin {
 }
 export interface IAcademicFaculty {
   id: string;
+  syncId: string;
   title: string;
   createdAt: string;
   updatedAt: string;
@@ -58,6 +59,7 @@ export interface IAcademicFaculty {
 
 export interface IAcademicDepartment {
   id: string;
+  syncId: string;
   title: string;
   academicFaculty: IAcademicFaculty;
   createdAt: string;
@@ -78,7 +80,11 @@ export interface IAcademicSemester {
 
 export interface IFaculty {
   id: string;
-  name: Name;
+
+  firstName: string;
+  middleName: string;
+  lastName: string;
+
   gender: string;
   email: string;
   contactNo: string;

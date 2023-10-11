@@ -4,7 +4,7 @@ import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import UMTable from "@/components/ui/UMTable";
 import { useFacultiesQuery } from "@/redux/api/facultyApi";
 import { useDebounced } from "@/redux/hooks";
-import { IDepartment } from "@/types";
+import { IDepartment, IFaculty } from "@/types";
 import {
   DeleteOutlined,
   EditOutlined,
@@ -48,12 +48,12 @@ const FacultyPage = () => {
   const columns = [
     {
       title: "Id",
-      dataIndex: "id",
+      dataIndex: "facultyId",
       sorter: true,
     },
     {
       title: "Name",
-      render: function (data: Record<string, string>) {
+      render: function (data: IFaculty) {
         const fullName = `${data?.firstName} ${data?.middleName} ${data?.lastName}`;
         return <>{fullName}</>;
       },
